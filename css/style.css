@@ -3,18 +3,16 @@
   padding: 0;
 }
 header {
-
-  border-bottom: 2px solid white;
   position: relative;
-  background: grey;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 5px #e66465;
 }
 header nav {
-  background: url('../img/header-background.png') 50% 50% no-repeat;
+  background: linear-gradient(#e66465, #9198e5);
   padding: 30px 0;
   position: relative;
   width: 100%;
-  border-radius: 0px 0px 30px 30px;
-  border: 5px solid darkblue;
+  opacity: 0.9;
   border-top: none;
   box-sizing: border-box;
 }
@@ -34,27 +32,49 @@ header nav ul li {
 }
 header nav ul li a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
     font-family: Helvetica;
     font-size: 36px;
     font-weight: bold;
 }
 /*header styles*/
 
-section {
+section {  /*body except header*/
   display: flex;
   flex-direction: row;
 }
-section #graphic {
-  background: lightblue;
-  height: 800px;
-  width: 70vw;
+section #table-container {
+  background: darkblue;
+  height: 600px;
+  width: 100vw;
   opacity: 0.5;
 }
 
 section #buyIdentificatpor {
-  background: grey;
-  height: 800px;
-  width: 30vw;
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: radial-gradient(purple, blue);
+  height: 300px;
+  width: 300px;
   opacity: 0.5;
+  border-radius: 150px;
+  visibility: hidden;
+}
+/*Table*/
+.cripto-currency-table {
+  background: white;
+  color: black;
+  margin: 1vh auto;
+  width: 80vw;
+}
+.cripto-currency-table th {
+  padding: 10px 0;
+}
+#div-cc-table-data {
+  height: 70vh;
+  overflow: scroll;
+}
+.cripto-currency-table-data {
+  text-align: center;
 }

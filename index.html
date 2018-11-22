@@ -21,16 +21,27 @@
     <!--________________ -->
     <section>
 
-      <div id="graphic">
-        <h3>SVG</h3>
-        <svg>
-            <rect width="50" height="200" style="fill:red;" />
-        </svg>
-        <h3>D3.js</h3>
+      <div id="table-container">
+        <div id="buyIdentificatpor">
+        </div>
+        <table class="cripto-currency-table">
+          <tr>
+            <th>#</th>   <!--number-->
+            <th>Name</th>  <!--currency-->
+            <th>Price</th>  <!--close-->
+            <th>Highest price</th>  <!--high-->
+            <th>ATH</th>  <!--if(high >= close) {ATH = close*100% /high} else {ATH = close}-->
+            <th>Price one year ago</th>
+          </tr>
+        </table>
+        <div id="div-cc-table-data">
+        <table class="cripto-currency-table cripto-currency-table-data">
+
+        </table>
+        </div>
       </div>
 
-      <div id="buyIdentificatpor">
-      </div>
+
 
     </section>
 

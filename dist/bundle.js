@@ -28426,44 +28426,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/getData.js":
-/*!************************!*\
-  !*** ./src/getData.js ***!
-  \************************/
+/***/ "./src/CriptoCurrencyModel.js":
+/*!************************************!*\
+  !*** ./src/CriptoCurrencyModel.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+//Model
+//Модель CriptoCurrencyModel отвечает за работу с данными. В клиентском JS это означает выполнение Ajax-операций. Одно из преимуществ шаблона MVC заключается в том, что всё взаимодействие с источником данных, например — с сервером, сосредоточено в одном месте.
+ // Start of getting Currency's Data from https://nomics.com/ API
+//XMLHttpRequest to recieve Data
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-// Start of getting Currency's Data from https://nomics.com/ API
-//XMLHttpRequest to recieve Data
-function httpGet(url) {
-  return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    console.log(url);
-    xhr.open('GET', url, true);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    xhr.onload = function () {
-      if (this.status == 200) {
-        resolve(this.responseText);
-      }
-    };
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-    xhr.onerror = function () {
-      reject(new Error("Network Error"));
-    };
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-    xhr.send();
-  });
-}
+var CriptoCurrencyModel =
+/*#__PURE__*/
+function () {
+  function CriptoCurrencyModel() {
+    _classCallCheck(this, CriptoCurrencyModel);
+  }
 
-var _default = httpGet;
+  _createClass(CriptoCurrencyModel, null, [{
+    key: "httpGet",
+    value: function httpGet(url) {
+      return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        console.log(url);
+        xhr.open('GET', url, true);
+
+        xhr.onload = function () {
+          if (this.status == 200) {
+            return resolve(this.responseText);
+          }
+        };
+
+        xhr.onerror = function () {
+          reject(new Error("Network Error"));
+        };
+
+        xhr.send();
+      });
+    }
+  }]);
+
+  return CriptoCurrencyModel;
+}();
+
+var _default = CriptoCurrencyModel;
 exports.default = _default;
 
 /***/ }),
@@ -28478,7 +28498,7 @@ exports.default = _default;
 "use strict";
 
 
-var _getData = _interopRequireDefault(__webpack_require__(/*! ./getData.js */ "./src/getData.js"));
+var _CriptoCurrencyModel = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyModel.js */ "./src/CriptoCurrencyModel.js"));
 
 var d3 = _interopRequireWildcard(__webpack_require__(/*! d3 */ "./node_modules/d3/index.js"));
 
@@ -28486,10 +28506,16 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _getData.default)("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af").then(function (response) {
-  var data = response;
+//Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
+_CriptoCurrencyModel.default.httpGet("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af").then(function (response) {
+  var data = JSON.parse(response); // data - это массив объектов, в которых содержаться данные по конкретной криптовалюте
+  // Данные можно использовать только внутри этой функции.
+
+  for (var i = 0; i < data.length; i++) {
+    var ATH = data[i].close >= data[i].high ? '100%' : Math.round(data[i].close * 100 / data[i].high * 100) / 100 + "%";
+    d3.select(".cripto-currency-table-data").append('tr').html("<td>".concat(i + 1, "</td><td>").concat(data[i].currency, "</td><td>").concat(data[i].close, "$</td><td>").concat(data[i].high, "$</td><td>").concat(ATH, "</td><td>").concat(data[i].yearOpen, "$</td>"));
+  }
 });
-d3.select("#graphic").append("svg").attr("width", 600).attr("height", 400).append("rect").attr("width", 400).attr("height", 200).style("fill", "red");
 
 /***/ })
 
