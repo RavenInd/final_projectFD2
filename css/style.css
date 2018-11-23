@@ -2,10 +2,14 @@
   margin: 0;
   padding: 0;
 }
+html, body {
+  height: 100%;
+}
 header {
   position: relative;
   box-sizing: border-box;
   box-shadow: 0px 5px 5px #e66465;
+  height: 13vh;
 }
 header nav {
   background: linear-gradient(#e66465, #9198e5);
@@ -46,14 +50,14 @@ section {  /*body except header*/
 /*************************PAGES*****/
 section #home-page {
   display: none;
-  height: 90vh;
+  height: 87vh;
   width: 100vw;
   background: yellow;
 
 }
 section #table-container-page {
   background: darkblue;
-  height: 90vh;
+  height: 87vh;
   width: 100vw;
   opacity: 0.5;
   display: none;
@@ -61,33 +65,21 @@ section #table-container-page {
 
 }
 section #graphics-page {
-  height: 90vh;
+
   width: 100vw;
   background: crimson;
   display: none;
 }
 
 section #developers-page {
-  height: 90vh;
+
   width: 100vw;
   background: blue;
   display: none;
 
 }
 
-
-section #buyIdentificatpor {
-  position: fixed;
-  top: 120px;
-  right: 20px;
-  background: radial-gradient(purple, blue);
-  height: 300px;
-  width: 300px;
-  opacity: 0.5;
-  border-radius: 150px;
-  visibility: hidden;
-}
-/*Table*/
+/*TABLE*/
 .cripto-currency-table {
   background: white;
   color: black;
@@ -108,6 +100,55 @@ section #buyIdentificatpor {
 .cripto-currency-table-data td {
   border: 2px solid black;
   width: 10vw;
+}
+/*GRAPHICS*/
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: orange;
+  margin: 0 10px;
+}
+
+.bar:hover {
+  fill: orangered ;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
 }
 .active-element {
   display: block !important;
