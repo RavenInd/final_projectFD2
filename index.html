@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRyIng PoTatO</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#currencyTable">Cripto Currency</a></li>
+          <li><a href="#graphics">Graphics</a></li>
+          <li><a href="#developers">Developers</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!--________________ -->
+    <section>
+      <div id="home-page"></div>
+      <div id="table-container-page"> <!--Table-->
+        <table class="cripto-currency-table">
+          <tr>
+            <th>Number</th>   <!--number-->
+            <th>Name</th>  <!--currency-->
+            <th>Current Price</th>  <!--close-->
+            <th>Highest price</th>  <!--high-->
+            <th>ATH</th>  <!--if(high >= close) {ATH = close*100% /high} else {ATH = close}-->
+            <th>Price one year ago</th>
+          </tr>
+        </table>
+        <div id="div-cc-table-data">
+          <table class="cripto-currency-table cripto-currency-table-data">
+
+          </table>
+        </div>
+      </div>
+      <div id="graphics-page"></div>
+      <div id="developers-page"></div>
+
+
+    </section>
+
+
+  <script src="./dist/bundle.js"></script>
+  </body>
+</html>
