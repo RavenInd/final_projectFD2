@@ -28488,6 +28488,58 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./src/CriptoCurrencyView.js":
+/*!***********************************!*\
+  !*** ./src/CriptoCurrencyView.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+//View
+//Представление CriptoCurrencyView взаимодействует с DOM
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var d3 = _interopRequireWildcard(__webpack_require__(/*! d3 */ "./node_modules/d3/index.js"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var CriptoCurrencyView =
+/*#__PURE__*/
+function () {
+  function CriptoCurrencyView() {
+    _classCallCheck(this, CriptoCurrencyView);
+  }
+
+  _createClass(CriptoCurrencyView, null, [{
+    key: "buildTable",
+    value: function buildTable(criptoDataArray) {
+      for (var i = 0; i < criptoDataArray.length; i++) {
+        var ATH = criptoDataArray[i].close >= criptoDataArray[i].high ? '100%' : Math.round(criptoDataArray[i].close * 100 / criptoDataArray[i].high * 100) / 100 + "%";
+        d3.select(".cripto-currency-table-data").append('tr').html("<td>".concat(i + 1, "</td><td>").concat(criptoDataArray[i].currency, "</td><td>").concat(criptoDataArray[i].close, "$</td><td>").concat(criptoDataArray[i].high, "$</td><td>").concat(ATH, "</td><td>").concat(criptoDataArray[i].yearOpen, "$</td>"));
+      }
+    }
+  }]);
+
+  return CriptoCurrencyView;
+}();
+
+var _default = CriptoCurrencyView;
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -28500,6 +28552,8 @@ exports.default = _default;
 
 var _CriptoCurrencyModel = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyModel.js */ "./src/CriptoCurrencyModel.js"));
 
+var _CriptoCurrencyView = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyView.js */ "./src/CriptoCurrencyView.js"));
+
 var d3 = _interopRequireWildcard(__webpack_require__(/*! d3 */ "./node_modules/d3/index.js"));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
@@ -28511,10 +28565,7 @@ _CriptoCurrencyModel.default.httpGet("https://api.nomics.com/v1/dashboard?key=ca
   var data = JSON.parse(response); // data - это массив объектов, в которых содержаться данные по конкретной криптовалюте
   // Данные можно использовать только внутри этой функции.
 
-  for (var i = 0; i < data.length; i++) {
-    var ATH = data[i].close >= data[i].high ? '100%' : Math.round(data[i].close * 100 / data[i].high * 100) / 100 + "%";
-    d3.select(".cripto-currency-table-data").append('tr').html("<td>".concat(i + 1, "</td><td>").concat(data[i].currency, "</td><td>").concat(data[i].close, "$</td><td>").concat(data[i].high, "$</td><td>").concat(ATH, "</td><td>").concat(data[i].yearOpen, "$</td>"));
-  }
+  _CriptoCurrencyView.default.buildTable(data);
 });
 
 /***/ })

@@ -66,10 +66,10 @@ section #buyIdentificatpor {
   background: white;
   color: black;
   margin: 1vh auto;
-  width: 80vw;
+  width: 60vw;
 }
 .cripto-currency-table th {
-  padding: 10px 0;
+  width: 10vw;
 }
 #div-cc-table-data {
   height: 70vh;
@@ -77,4 +77,9 @@ section #buyIdentificatpor {
 }
 .cripto-currency-table-data {
   text-align: center;
+  border-collapse: collapse;
+}
+.cripto-currency-table-data td {
+  border: 1px solid black;
+  width: 10vw;
 }
