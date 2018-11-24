@@ -29,7 +29,7 @@ class CriptoCurrencyView {
   static buildGraphic(criptoDataArray) {
     const margin = {top: 50, right: 50, bottom: 50, left: 50},
     width = 1450 - margin.left - margin.right,
-    height = 664 - margin.top - margin.bottom;
+    height = 600 - margin.top - margin.bottom;
 
     const data = criptoDataArray;
     const x = d3.scaleBand()
@@ -88,8 +88,8 @@ class CriptoCurrencyView {
       .enter().append("rect")
         .attr("class", "bar")
         .attr("x", function(d) {return x(d.currency); })
-        .attr("width", x.bandwidth() - 10)
-        .attr("y", function(d) { return y(d.close + 5); })
+        .attr("width", x.bandwidth() - 6)
+        .attr("y", function(d) { return y(d.close + 3); })
         .attr("height", function(d) { return height - y(d.close); })
         // .on('mouseover', tip.show)
         // .on('mouseout', tip.hide)

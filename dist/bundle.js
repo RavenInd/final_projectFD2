@@ -28551,7 +28551,7 @@ function () {
         left: 50
       },
           width = 1450 - margin.left - margin.right,
-          height = 664 - margin.top - margin.bottom;
+          height = 600 - margin.top - margin.bottom;
       var data = criptoDataArray;
       var x = d3.scaleBand().range([0, width]);
       var y = d3.scaleLinear().range([height, 0]);
@@ -28595,8 +28595,8 @@ function () {
 
       svg.selectAll(".bar").data(data).enter().append("rect").attr("class", "bar").attr("x", function (d) {
         return x(d.currency);
-      }).attr("width", x.bandwidth() - 10).attr("y", function (d) {
-        return y(d.close + 5);
+      }).attr("width", x.bandwidth() - 6).attr("y", function (d) {
+        return y(d.close + 3);
       }).attr("height", function (d) {
         return height - y(d.close);
       }); // .on('mouseover', tip.show)
@@ -28775,12 +28775,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-location.hash = '#home'; //Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
-
+//Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
 _CriptoCurrencyModel.default.httpGet("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af").then(function (response) {
   var data = JSON.parse(response).filter(function (d) {
     return d.close < 1 && d.close > 0.1;
-  }).splice(0, 13); // data - это массив объектов, в которых содержаться данные по конкретной криптовалюте
+  }).splice(0, 30); // data - это массив объектов, в которых содержаться данные по конкретной криптовалюте
   // Данные можно использовать только внутри этой функции.
 
   _CriptoCurrencyView.default.buildTable(data);
