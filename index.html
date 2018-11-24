@@ -5,22 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CRyIng PoTatO</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#currencyTable">Cripto Currency</a></li>
-          <li><a href="#graphics">Graphics</a></li>
-          <li><a href="#developers">Developers</a></li>
-        </ul>
-      </nav>
-    </header>
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#currencyTable">Table</a></li>
+				<li><a href="#graphics">Graphics</a></li>
+				<li><a href="#developers">Developers</a></li>
+			</ul>
+		</header>
     <!--________________ -->
     <section>
-      <div id="home-page"></div>
+      <div id="home-page">
+        <div class="div-main">
+          <img src="./img/bi2.jpg" class="leftimg">
+          <h3>Понятие криптовалюты и ее суть</h3>
+          <p>О криптовалюте сегодня не говорит разве что ленивый, но что это такое? Говоря простым языком – это цифровая валюта, в качестве ее единицы выступают монеты (coin). Они защищаются от возможности подделки, представляя собой зашифрованную информацию, недоступную к копированию, благодаря использованию метода криптографии. </p>
+          <p>Не стоит путать понятия «электронные деньги» и «криптовалюта», так как:</p>
+          <p>Электронные деньги могут появиться на счету в любой из современных систем только после того, как они вносятся на счет в своем реальном, физическом воплощении, к примеру, через кассу или платежные терминалы, поэтому электронный вид является только одной из форм.</p>
+          <p>Криптовалюта же эмитируется сразу в Сети, и она никоим образом не связывается с обычными валютами или государственной системой.</p>
+          <p>Любой желающий может заняться заработком криптовалюты, имея на руках специальное обеспечение и оборудование. Именно вычислительные мощности будут отвечать за решение постоянно усложняемых алгоритмов, добывая монету, а, если точнее – зашифрованную информацию. Что выступает в качестве доказательства присутствия в Сети монеты? Блокчейн – своего рода учетная запись, о которой будет рассказано несколько ниже. Валюта хранится децентрализовано на криптокошельках пользователей.</p>
+        </div>
+
+        <div class="div-main">
+          <img src="./img/bi1.jpg" class="rightimg"><h3>Преимущества криптовалюты</h3>
+          <p>1.Так как код алгоритма открытый, добывать ее может любой человек, изъявивший желание.</p>
+          <p>2.Все транзакции анонимны, то есть любая информация о владельце криптокошелька отсутствует!</p>
+          <p>3.У криптовалюты децентрализованный характер – нет единого банка, отсутствует любой контроль над платежами и осуществляемыми транзакциями.</p>
+          <p>4.Криптовалюта не подвержена такому процессу, как инфляция, так как можно эмитировать только ограниченное число монет.</p>
+          <p>5.Высокий уровень защиты – валюту нельзя скопировать.</p>
+          <p>6.Минимальные комиссии.</p>
+        </div>
+
+        <div class="div-main">
+          <img src="./img/bi4.jpg" class="leftimg"><h3>Среди самых известных криптовалют на современном рынке стоит выделить:</h3>
+          <p>- Биткоин (BitCoin)</p>
+          <p>- Лайткоин (LiteCoin)</p>
+          <p>- Эфириум (Ethereum)</p>
+          <p>- Dash</p>
+          <p>- Сатоши (Satosni)</p>
+          <p>- Primecoin</p>
+          <p>- И многие другие альткойны.</p>
+        </div>
+      </div>
       <div id="table-container-page"> <!--Table-->
         <table class="cripto-currency-table">
           <tr>
@@ -39,11 +70,56 @@
         </div>
       </div>
       <div id="graphics-page"></div>
-      <div id="developers-page"></div>
 
 
+      <div id="developers-page">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="./img/photo1.jpg">
+                </div>
+                <div class="team-content">
+                  <h3 class="title">КРАВЦЕВИЧ СЕМЁН</h3>
+                  <span class="post">Web Developer</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="./img/photo2.jpg">
+                </div>
+                <div class="team-content">
+                  <h3 class="title">ТОЛКАЧ ВИКТОР</h3>
+                  <span class="post">Web Designer</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="our-team">
+                  <div class="pic">
+                    <img src="./img/photo3.jpg">
+                  </div>
+                  <div class="team-content">
+                    <h3 class="title">АНДРЕЙ</h3>
+                    <span class="post">Web Teammate</span>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+      </div>
     </section>
-
+    <footer>
+      <p>Все права защищены. </p>
+      <p>Разработчики: Кравцевич Семён, Толкач Виктор</p>
+      <p>&copy; 2018</p>
+    </footer>
 
   <script src="./dist/bundle.js"></script>
   </body>
