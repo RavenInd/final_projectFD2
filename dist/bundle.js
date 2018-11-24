@@ -28462,7 +28462,7 @@ function () {
     value: function httpGet(url) {
       return new Promise(function (resolve, reject) {
         var xhr = new XMLHttpRequest();
-        console.log(url);
+        xhr.withCredentials = true;
         xhr.open('GET', url, true);
 
         xhr.onload = function () {
