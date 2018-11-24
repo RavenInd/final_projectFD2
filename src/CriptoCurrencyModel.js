@@ -13,16 +13,14 @@ class CriptoCurrencyModel {
 
       let xhr = new XMLHttpRequest();
 
-      xhr.withCredentials = true;
       xhr.open('GET', url, true);
 
       xhr.onload = function() {
         if (this.status == 200) {
-
            return resolve(this.responseText);
-
         }
         };
+
       xhr.onerror = function() {
         reject(new Error("Network Error"));
       };

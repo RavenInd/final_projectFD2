@@ -28462,7 +28462,6 @@ function () {
     value: function httpGet(url) {
       return new Promise(function (resolve, reject) {
         var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
         xhr.open('GET', url, true);
 
         xhr.onload = function () {
@@ -28555,23 +28554,6 @@ function () {
       var data = criptoDataArray;
       var x = d3.scaleBand().range([0, width]);
       var y = d3.scaleLinear().range([height, 0]);
-      /*
-          const xAxis = d3.svg.axis()
-          .scale(x)
-          .orient("bottom");
-      
-          const yAxis = d3.svg.axis()
-          .scale(y)
-          .orient("left")
-          .tickFormat(formatPercent);
-      
-          const tip = d3.tip()
-              .attr('class', 'd3-tip')
-              .offset([-10, 0])
-              .html(function(d) {
-                return "<strong>Frequency:</strong> <span style='color:red'>" + d.close + "</span>";
-              })*/
-
       var svg = d3.select("#graphics-page").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       x.domain(data.map(function (d) {
         return d.currency;
@@ -28581,63 +28563,13 @@ function () {
       })]);
       svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
       svg.append("g").call(d3.axisLeft(y));
-      /*
-          svg.append("g")
-              .attr("class", "y axis")
-              .call(yAxis)
-            .append("text")
-              .attr("transform", "rotate(-90)")
-              .attr("y", 6)
-              .attr("dy", ".71em")
-              .style("text-anchor", "end")
-              .text("Frequency");
-      */
-
       svg.selectAll(".bar").data(data).enter().append("rect").attr("class", "bar").attr("x", function (d) {
         return x(d.currency);
       }).attr("width", x.bandwidth() - 6).attr("y", function (d) {
         return y(d.close + 3);
       }).attr("height", function (d) {
         return height - y(d.close);
-      }); // .on('mouseover', tip.show)
-      // .on('mouseout', tip.hide)
-
-      /*const margin = {
-        top: 50,     //vh
-        right: 50,   //vw
-        bottom: 50,  //vh
-        left: 50     //vw
-      };
-      const width = 90 - margin.right - margin.left;
-      const height = 87 - margin.top - margin.bottom;
-      const barHeight = 10;
-      const barOffset = 1;
-      d3.scaleLinear()
-        .domain([0, 5000])
-        .range([0, width])
-         const svg = d3.select('#graphics-page').append('svg')
-            .attr("width", (width + margin.left + margin.right) + "vw")
-            .attr("height", (height + margin.top + margin.bottom) + "vh")
-            .style("margin",'1vh 5vw')
-          .append("g");
-           const bars = svg.selectAll(".bar").data(criptoDataArray);
-           bars.exit().remove();
-         bars
-          .attr("width", d => d.close)
-          .attr('y', (d,n) => n * 1);
-           const barAdd = bars
-            .enter()
-              .append("rect")
-                .attr("class", "bar")
-                .attr('height', barHeight);
-            //Update values and bars
-          barAdd
-            .merge(bars)
-              .transition()
-                .duration(1000)
-                .attr("width", d => d.close)
-                .attr('y', (d,n) => n * barHeight + n * barOffset);
-      }*/
+      });
     }
   }]);
 
@@ -28778,7 +28710,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
 _CriptoCurrencyModel.default.httpGet("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af").then(function (response) {
   var data = JSON.parse(response).filter(function (d) {
-    return d.close < 1 && d.close > 0.1;
+    return d.close < 3 && d.close > 0.1;
   }).splice(0, 30); // data - это массив объектов, в которых содержаться данные по конкретной криптовалюте
   // Данные можно использовать только внутри этой функции.
 
