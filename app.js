@@ -2,7 +2,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   app = express(),
   isProd = typeof(process) !== 'undefined' && process && process.env && process.env.PORT,
-  port = isProd ? process.env.PORT : 3000,
+  port = isProd ? process.env.PORT : 5000,
   rootFolder = `${__dirname}/www/${isProd ? 'release' : 'src'}`;
 
 app.set('view engine', 'ejs');

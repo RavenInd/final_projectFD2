@@ -1,6 +1,7 @@
 {
+  "main": "app.js",
   "scripts": {
-  "start": "node app.js",
+    "start": "node app.js"
 },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -11,7 +12,13 @@
   },
   "dependencies": {
     "d3": "^5.7.0",
-    "webpack": "^4.26.0"
+    "webpack": "^4.26.0",
+    "body-parser": "1.18.2",
+    "ejs": "2.5.7",
+    "express": "4.15.3"
+  },
+  "engines": {
+    "node": "8.11.3"
   }
 
 }
