@@ -1,5 +1,7 @@
 {
-
+  "scripts": {
+  "start": "node app.js",
+},
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
@@ -10,8 +12,6 @@
   "dependencies": {
     "d3": "^5.7.0",
     "webpack": "^4.26.0"
-  },
-  "scripts": {
-  "start": "concurrently \"node app.js\"",
-}
+  }
+
 }
