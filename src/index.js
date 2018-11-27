@@ -5,9 +5,12 @@ import Router from './Router.js';
 import * as d3 from 'd3';
 const router = new Router;
 let currentHash =document.location.hash;
-document.location.hash = null;
-document.location.hash = currentHash;
-
+if(currentHash == '') {
+  document.location.hash = "#home";
+} else {
+  document.location.hash = null;
+  document.location.hash = currentHash;
+}
 
 //Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
 CriptoCurrencyModel.httpGet("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af")

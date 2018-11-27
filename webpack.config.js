@@ -11,6 +11,10 @@ module.exports = {
     filename: 'bundle.js',
     library: "index"
   },
+  devServer: {
+    compress: true,
+    port: 9000
+  },
   watchOptions: {
     aggregateTimeout: 100
   },
@@ -19,7 +23,12 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      inject: true,
+      hash: true,
+      template: "./index.html",
+      filename: "./index.html",
+    })
   ],
   module: {
     rules: [
@@ -36,6 +45,5 @@ module.exports = {
               ]
             }
           ]
-
-  }
+        }
 }
