@@ -24,8 +24,8 @@ module.exports = {
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      inject: true,
-      hash: true,
+      inject: false,
+      hash: false,
       template: "./index.html",
       filename: "./index.html",
     })
