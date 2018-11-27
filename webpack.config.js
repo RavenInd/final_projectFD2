@@ -11,7 +11,6 @@ module.exports = {
     filename: 'bundle.js',
     library: "index"
   },
-  watch: NODE_ENV == "development",
   watchOptions: {
     aggregateTimeout: 100
   },

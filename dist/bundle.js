@@ -28430,19 +28430,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************!*\
   !*** ./src/CriptoCurrencyModel.js ***!
   \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
 //Model
 //Модель CriptoCurrencyModel отвечает за работу с данными. В клиентском JS это означает выполнение Ajax-операций. Одно из преимуществ шаблона MVC заключается в том, что всё взаимодействие с источником данных, например — с сервером, сосредоточено в одном месте.
  // Start of getting Currency's Data from https://nomics.com/ API
 //XMLHttpRequest to recieve Data
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28483,8 +28479,7 @@ function () {
   return CriptoCurrencyModel;
 }();
 
-var _default = CriptoCurrencyModel;
-exports.default = _default;
+/* harmony default export */ __webpack_exports__["default"] = (CriptoCurrencyModel);
 
 /***/ }),
 
@@ -28492,28 +28487,23 @@ exports.default = _default;
 /*!***********************************!*\
   !*** ./src/CriptoCurrencyView.js ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
 //View
 //Представление CriptoCurrencyView взаимодействует с DOM
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var d3 = _interopRequireWildcard(__webpack_require__(/*! d3 */ "./node_modules/d3/index.js"));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
 
 var CriptoCurrencyView =
 /*#__PURE__*/
@@ -28538,7 +28528,7 @@ function () {
           high = '';
         }
 
-        d3.select(".cripto-currency-table-data").append('tr').html("<td>".concat(i + 1, "</td><td>").concat(currentElement['currency'], "</td><td>").concat(currentElement['close'], "$</td><td>").concat(high, "$</td><td>").concat(ATH, "</td><td>").concat(currentElement['yearOpen'], "$</td>"));
+        d3__WEBPACK_IMPORTED_MODULE_0__["select"](".cripto-currency-table-data").append('tr').html("<td>".concat(i + 1, "</td><td>").concat(currentElement['currency'], "</td><td>").concat(currentElement['close'], "$</td><td>").concat(high, "$</td><td>").concat(ATH, "</td><td>").concat(currentElement['yearOpen'], "$</td>"));
       }
     }
   }, {
@@ -28553,8 +28543,8 @@ function () {
           width = 1450 - margin.left - margin.right,
           height = 600 - margin.top - margin.bottom;
       var data = criptoDataArray;
-      var x = d3.scaleBand().range([0, width]);
-      var y = d3.scaleLinear().range([height, 0]);
+      var x = d3__WEBPACK_IMPORTED_MODULE_0__["scaleBand"]().range([0, width]);
+      var y = d3__WEBPACK_IMPORTED_MODULE_0__["scaleLinear"]().range([height, 0]);
       /*
           const xAxis = d3.svg.axis()
           .scale(x)
@@ -28572,15 +28562,15 @@ function () {
                 return "<strong>Frequency:</strong> <span style='color:red'>" + d.close + "</span>";
               })*/
 
-      var svg = d3.select("#graphics-page").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("#graphics-page").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       x.domain(data.map(function (d) {
         return d.currency;
       }));
-      y.domain([0, d3.max(data, function (d) {
+      y.domain([0, d3__WEBPACK_IMPORTED_MODULE_0__["max"](data, function (d) {
         return d.close;
       })]);
-      svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
-      svg.append("g").call(d3.axisLeft(y));
+      svg.append("g").attr("transform", "translate(0," + height + ")").call(d3__WEBPACK_IMPORTED_MODULE_0__["axisBottom"](x));
+      svg.append("g").call(d3__WEBPACK_IMPORTED_MODULE_0__["axisLeft"](y));
       /*
           svg.append("g")
               .attr("class", "y axis")
@@ -28644,8 +28634,7 @@ function () {
   return CriptoCurrencyView;
 }();
 
-var _default = CriptoCurrencyView;
-exports.default = _default;
+/* harmony default export */ __webpack_exports__["default"] = (CriptoCurrencyView);
 
 /***/ }),
 
@@ -28653,32 +28642,25 @@ exports.default = _default;
 /*!***********************!*\
   !*** ./src/Router.js ***!
   \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
+/* harmony import */ var _CriptoCurrencyModel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CriptoCurrencyModel.js */ "./src/CriptoCurrencyModel.js");
+/* harmony import */ var _CriptoCurrencyView_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CriptoCurrencyView.js */ "./src/CriptoCurrencyView.js");
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var d3 = _interopRequireWildcard(__webpack_require__(/*! d3 */ "./node_modules/d3/index.js"));
-
-var _CriptoCurrencyModel = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyModel.js */ "./src/CriptoCurrencyModel.js"));
-
-var _CriptoCurrencyView = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyView.js */ "./src/CriptoCurrencyView.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
 
 var Router =
 /*#__PURE__*/
@@ -28748,8 +28730,7 @@ function () {
   return Router;
 }();
 
-var _default = Router;
-exports.default = _default;
+/* harmony default export */ __webpack_exports__["default"] = (Router);
 
 /***/ }),
 
@@ -28757,37 +28738,35 @@ exports.default = _default;
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CriptoCurrencyModel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CriptoCurrencyModel.js */ "./src/CriptoCurrencyModel.js");
+/* harmony import */ var _CriptoCurrencyView_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CriptoCurrencyView.js */ "./src/CriptoCurrencyView.js");
+/* harmony import */ var _Router_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Router.js */ "./src/Router.js");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
 
 
-var _CriptoCurrencyModel = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyModel.js */ "./src/CriptoCurrencyModel.js"));
 
-var _CriptoCurrencyView = _interopRequireDefault(__webpack_require__(/*! ./CriptoCurrencyView.js */ "./src/CriptoCurrencyView.js"));
 
-var _Router = _interopRequireDefault(__webpack_require__(/*! ./Router.js */ "./src/Router.js"));
 
-var d3 = _interopRequireWildcard(__webpack_require__(/*! d3 */ "./node_modules/d3/index.js"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+var router = new _Router_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
+var currentHash = document.location.hash;
+document.location.hash = null;
+document.location.hash = currentHash; //Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//Promise, в сотоянии fullfilled, получает JSON-файл с данными по криптовалюте.
-_CriptoCurrencyModel.default.httpGet("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af").then(function (response) {
+_CriptoCurrencyModel_js__WEBPACK_IMPORTED_MODULE_0__["default"].httpGet("https://api.nomics.com/v1/dashboard?key=ca9591ddb4080432e2d6a9a9d45d25af").then(function (response) {
   var data = JSON.parse(response).filter(function (d) {
     return d.close < 1 && d.close > 0.1;
   }).splice(0, 30); // data - это массив объектов, в которых содержаться данные по конкретной криптовалюте
   // Данные можно использовать только внутри этой функции.
 
-  _CriptoCurrencyView.default.buildTable(data);
-
-  _CriptoCurrencyView.default.buildGraphic(data);
+  _CriptoCurrencyView_js__WEBPACK_IMPORTED_MODULE_1__["default"].buildTable(data);
+  _CriptoCurrencyView_js__WEBPACK_IMPORTED_MODULE_1__["default"].buildGraphic(data);
 });
-
-var router = new _Router.default();
 
 /***/ })
 
